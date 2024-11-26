@@ -18,20 +18,20 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = /Users/macbookprocuaphi/Documents/hocCode/dotnetcore/baithi/baithithuchanh.netcor/ComicSystem
 build_property._RazorSourceGeneratorDebug = 
 
-[/Users/macbookprocuaphi/Documents/hocCode/dotnetcore/baithi/baithithuchanh.netcor/ComicSystem/Views/ComicBook/Create.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ29taWNCb29rL0NyZWF0ZS5jc2h0bWw=
+[/Users/macbookprocuaphi/Documents/hocCode/dotnetcore/baithi/baithithuchanh.netcor/ComicSystem/Views/ComicBooks/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ29taWNCb29rcy9DcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/macbookprocuaphi/Documents/hocCode/dotnetcore/baithi/baithithuchanh.netcor/ComicSystem/Views/ComicBook/Delete.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ29taWNCb29rL0RlbGV0ZS5jc2h0bWw=
+[/Users/macbookprocuaphi/Documents/hocCode/dotnetcore/baithi/baithithuchanh.netcor/ComicSystem/Views/ComicBooks/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ29taWNCb29rcy9EZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/macbookprocuaphi/Documents/hocCode/dotnetcore/baithi/baithithuchanh.netcor/ComicSystem/Views/ComicBook/Edit.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ29taWNCb29rL0VkaXQuY3NodG1s
+[/Users/macbookprocuaphi/Documents/hocCode/dotnetcore/baithi/baithithuchanh.netcor/ComicSystem/Views/ComicBooks/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ29taWNCb29rcy9FZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Users/macbookprocuaphi/Documents/hocCode/dotnetcore/baithi/baithithuchanh.netcor/ComicSystem/Views/ComicBook/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ29taWNCb29rL0luZGV4LmNzaHRtbA==
+[/Users/macbookprocuaphi/Documents/hocCode/dotnetcore/baithi/baithithuchanh.netcor/ComicSystem/Views/ComicBooks/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvQ29taWNCb29rcy9JbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Users/macbookprocuaphi/Documents/hocCode/dotnetcore/baithi/baithithuchanh.netcor/ComicSystem/Views/Customers/Create.cshtml]
