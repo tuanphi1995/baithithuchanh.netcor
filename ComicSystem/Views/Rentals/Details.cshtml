@@ -1,0 +1,38 @@
+@model ComicSystem.Models.Rental
+
+@{
+    ViewData["Title"] = "Chi tiết phiếu thuê";
+}
+
+<h2>Chi tiết phiếu thuê</h2>
+
+<div>
+    <p><strong>Khách hàng:</strong> @Model.Customer?.FullName</p>
+    <p><strong>Ngày thuê:</strong> @Model.RentalDate.ToShortDateString()</p>
+    <p><strong>Trạng thái:</strong> @Model.Status</p>
+</div>
+
+<h3>Danh sách sách thuê</h3>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Tên sách</th>
+            <th>Số lượng</th>
+            <th>Giá thuê (VNĐ)</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var detail in Model.RentalDetails)
+        {
+            <tr>
+                <td>@detail.ComicBook?.Title</td>
+                <td>@detail.Quantity</td>
+                <td>@detail.PricePerDay.ToString("C")</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a href="/RentalDetails/Create?rentalId=@Model.RentalID" class="btn btn-success">Thêm sách</a>
+<a href="/Rentals" class="btn btn-secondary">Quay lại</a>
