@@ -102,3 +102,4 @@
 /Users/macbookprocuaphi/Documents/hocCode/dotnetcore/baithi/baithithuchanh.netcor/ComicSystem/obj/Debug/net8.0/ref/ComicSystem.dll
 /Users/macbookprocuaphi/Documents/hocCode/dotnetcore/baithi/baithithuchanh.netcor/ComicSystem/bin/Debug/net8.0/MySqlConnector.dll
 /Users/macbookprocuaphi/Documents/hocCode/dotnetcore/baithi/baithithuchanh.netcor/ComicSystem/bin/Debug/net8.0/Pomelo.EntityFrameworkCore.MySql.dll
+/Users/macbookprocuaphi/Documents/hocCode/dotnetcore/baithi/baithithuchanh.netcor/ComicSystem/obj/Debug/net8.0/ComicSystem.sourcelink.json

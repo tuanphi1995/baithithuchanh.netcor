@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ComicSystem.Data;
 using ComicSystem.Models;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace ComicSystem.Controllers
@@ -19,14 +20,24 @@ namespace ComicSystem.Controllers
         public IActionResult Create(int rentalId)
         {
             ViewData["RentalID"] = rentalId;
+            ViewBag.ComicBooks = _context.ComicBooks.ToList();
             return View(new RentalDetail { RentalID = rentalId });
         }
 
         // POST: RentalDetails/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("RentalID,ComicBookID,Quantity,PricePerDay")] RentalDetail rentalDetail)
+        public async Task<IActionResult> Create([Bind("RentalID,ComicBookID,Quantity")] RentalDetail rentalDetail)
         {
+            var comicBook = await _context.ComicBooks.FindAsync(rentalDetail.ComicBookID);
+            if (comicBook == null)
+            {
+                ModelState.AddModelError("ComicBookID", "Sách không tồn tại.");
+                return View(rentalDetail);
+            }
+
+            rentalDetail.PricePerDay = comicBook.PricePerDay;
+
             if (ModelState.IsValid)
             {
                 _context.Add(rentalDetail);

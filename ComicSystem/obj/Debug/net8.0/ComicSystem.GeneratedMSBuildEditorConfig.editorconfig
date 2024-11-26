@@ -54,6 +54,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUmVudGFsRGV0YWlscy9DcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[/Users/macbookprocuaphi/Documents/hocCode/dotnetcore/baithi/baithithuchanh.netcor/ComicSystem/Views/RentalDetails/RentalDetail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUmVudGFsRGV0YWlscy9SZW50YWxEZXRhaWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/macbookprocuaphi/Documents/hocCode/dotnetcore/baithi/baithithuchanh.netcor/ComicSystem/Views/Rentals/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUmVudGFscy9DcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
