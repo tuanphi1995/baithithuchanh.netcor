@@ -1,0 +1,36 @@
+@model IEnumerable<ComicSystem.Models.RentalDetail>
+
+@{
+    ViewData["Title"] = "Chi tiết phiếu thuê";
+}
+
+<h2>Chi tiết phiếu thuê</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Tên sách</th>
+            <th>Số lượng</th>
+            <th>Giá thuê mỗi ngày (VNĐ)</th>
+            <th>Tổng tiền (VNĐ)</th>
+            <th>Hành động</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var detail in Model)
+        {
+            <tr>
+                <td>@detail.ComicBook?.Title</td>
+                <td>@detail.Quantity</td>
+                <td>@detail.PricePerDay.ToString("C")</td>
+                <td>@(detail.Quantity * detail.PricePerDay).ToString("C")</td>
+                <td>
+                    <a href="/RentalDetails/Delete/@detail.RentalDetailID" class="btn btn-danger">Xóa</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a href="/RentalDetails/Create?rentalId=@Model.FirstOrDefault()?.RentalID" class="btn btn-success">Thêm sách</a>
+<a href="/Rentals" class="btn btn-secondary">Quay lại danh sách phiếu thuê</a>

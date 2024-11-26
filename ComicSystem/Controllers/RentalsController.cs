@@ -2,7 +2,6 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ComicSystem.Data;
 using ComicSystem.Models;
-using System;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -22,10 +21,7 @@ namespace ComicSystem.Controllers
         {
             var rentals = await _context.Rentals
                 .Include(r => r.Customer)
-                .Include(r => r.RentalDetails)
-                .ThenInclude(rd => rd.ComicBook)
                 .ToListAsync();
-
             return View(rentals);
         }
 
@@ -61,7 +57,7 @@ namespace ComicSystem.Controllers
         // POST: Rentals/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("CustomerID,Status")] Rental rental)
+        public async Task<IActionResult> Create([Bind("CustomerID,RentalDate,ReturnDate,Status")] Rental rental)
         {
             if (!_context.Customers.Any(c => c.CustomerID == rental.CustomerID))
             {
@@ -70,8 +66,9 @@ namespace ComicSystem.Controllers
 
             if (ModelState.IsValid)
             {
-                rental.RentalDate = DateTime.Now;
-                rental.ReturnDate = DateTime.Now.AddDays(7); // Giả sử thuê trong 7 ngày
+                rental.RentalDate = rental.RentalDate == default ? DateTime.Now : rental.RentalDate;
+                rental.ReturnDate = rental.ReturnDate == default ? DateTime.Now.AddDays(7) : rental.ReturnDate;
+
                 _context.Add(rental);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -171,27 +168,13 @@ namespace ComicSystem.Controllers
 
             if (rental != null)
             {
-                // Xóa RentalDetails trước khi xóa Rental
+                // Xóa chi tiết phiếu thuê trước khi xóa phiếu thuê
                 _context.RentalDetails.RemoveRange(rental.RentalDetails);
                 _context.Rentals.Remove(rental);
                 await _context.SaveChangesAsync();
             }
 
             return RedirectToAction(nameof(Index));
-        }
-
-        // GET: Rentals/Report
-        public async Task<IActionResult> Report(DateTime startDate, DateTime endDate)
-        {
-            var reportData = await _context.RentalDetails
-                .Include(rd => rd.Rental)
-                    .ThenInclude(r => r.Customer)
-                .Include(rd => rd.ComicBook)
-                .Where(rd => rd.Rental.RentalDate >= startDate && rd.Rental.ReturnDate <= endDate)
-                .ToListAsync();
-
-            ViewBag.ReportData = reportData;
-            return View();
         }
 
         private bool RentalExists(int id)

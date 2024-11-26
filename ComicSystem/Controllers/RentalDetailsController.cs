@@ -46,5 +46,41 @@ namespace ComicSystem.Controllers
             }
             return View(rentalDetail);
         }
+
+        // GET: RentalDetails/Delete/{id}
+        public async Task<IActionResult> Delete(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var rentalDetail = await _context.RentalDetails
+                .Include(rd => rd.ComicBook)
+                .Include(rd => rd.Rental)
+                .FirstOrDefaultAsync(m => m.RentalDetailID == id);
+
+            if (rentalDetail == null)
+            {
+                return NotFound();
+            }
+
+            return View(rentalDetail);
+        }
+
+        // POST: RentalDetails/Delete/{id}
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            var rentalDetail = await _context.RentalDetails.FindAsync(id);
+            if (rentalDetail != null)
+            {
+                _context.RentalDetails.Remove(rentalDetail);
+                await _context.SaveChangesAsync();
+            }
+
+            return RedirectToAction("Details", "Rentals", new { id = rentalDetail.RentalID });
+        }
     }
 }
